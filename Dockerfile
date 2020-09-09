@@ -1,5 +1,4 @@
-FROM ubuntu:16.04
-MAINTAINER Event Store Ltd <ops@eventstore.com>
+FROM ubuntu:18.04
 
 ENV ES_VERSION=5.0.8-1 \
     DEBIAN_FRONTEND=noninteractive \
@@ -18,6 +17,7 @@ EXPOSE 1112 2112 1113 2113
 VOLUME /var/lib/eventstore
 
 COPY eventstore.conf /etc/eventstore/
+COPY log.config /etc/eventstore/
 COPY entrypoint.sh /
 
 HEALTHCHECK --timeout=2s CMD curl -sf http://localhost:2113/stats || exit 1
