@@ -2,7 +2,8 @@ FROM ubuntu:18.04
 
 ENV ES_VERSION=5.0.9-1 \
     DEBIAN_FRONTEND=noninteractive \
-    EVENTSTORE_CLUSTER_GOSSIP_PORT=2112
+    EVENTSTORE_CLUSTER_GOSSIP_PORT=2112 \
+    EVENTSTORE_WRITE_STATS_TO_DB=false
 
 RUN apt-get update \
     && apt-get install tzdata curl iproute2 -y \
